@@ -291,7 +291,7 @@ public class ClientHandler implements Runnable {
 				}
 				records.putUserFileInfo(username, filename, size, date, "/"+username+"/"+filename, uploadedNodeIDs);
 				// log event - file insert
-				if (!nodeString.isBlank())
+				if (!nodeString.isEmpty())
 					MasterServer.logEvent("fileinsert", System.currentTimeMillis(),
 					new String[]{nodeString, username, part[1], String.valueOf(size), "/"+username+"/"+filename});
 			}			} catch (Exception e) {

@@ -106,7 +106,7 @@ public class NodeListener implements Runnable {
 				LinkedList<String> filesToSend = new LinkedList<String>(); // list of any possible missing files
 				String nodesFiles = records.getNodeFileList(nodeID);
 				String[] files;
-				if (!nodesFiles.isBlank()) files = nodesFiles.split("\n");
+				if (!nodesFiles.isEmpty()) files = nodesFiles.split("\n");
 				else files = new String[0];
 
 				for (String file : files) {

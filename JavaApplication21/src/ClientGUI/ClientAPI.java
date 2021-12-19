@@ -39,7 +39,7 @@ import javax.swing.JProgressBar;
 public class ClientAPI {
 
 	private static final int PORT = 32003; // port that the server is listening on
-	private static final String HOST = "kylertracy.com"; // hostname of server
+	private static final String HOST = "localhost"; // hostname of server
 	private static final String ALG = "SHA-256";
 	private static final long MAX_UPLOAD = 524288000L; // 500 MiB max upload size
 	private static final boolean DEBUG = true; // turn on to print error stack traces

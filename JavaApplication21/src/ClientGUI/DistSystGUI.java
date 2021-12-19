@@ -5,7 +5,7 @@
  */
 package ClientGUI;
 
-import com.formdev.flatlaf.FlatDarculaLaf;
+//import com.formdev.flatlaf.FlatDarculaLaf;
 
 /**
  *
@@ -24,7 +24,7 @@ public class DistSystGUI {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        FlatDarculaLaf.setup();
+       // FlatDarculaLaf.setup();
         login = new LoginGUI();
         login.setVisible(true);
         

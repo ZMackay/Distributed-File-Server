@@ -213,7 +213,7 @@ public class MasterRecords {
 					for (String node : fileInfo.getNodes()) {
 						nodes += node + ",";
 					}
-					if (!nodes.isBlank()) nodes = nodes.substring(0, nodes.length()-1); // remove extra comma
+					if (!nodes.isEmpty()) nodes = nodes.substring(0, nodes.length()-1); // remove extra comma
 					bw.write(username +"::"+ filename +"::"+ fileInfo.getDate() +"::"
 						+ fileInfo.getPath() +"::"+ fileInfo.getSize() +"::"+ nodes);
 					bw.newLine();

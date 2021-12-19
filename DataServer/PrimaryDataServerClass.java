@@ -41,8 +41,8 @@ public class PrimaryDataServerClass {
 	 */
 	public void masterConnect() {
 		try {
-			//String masterIP = "kylertracy.com";
-			String masterIP = "10.181.244.158";
+			
+			String masterIP = "localhost";
 			//int port = 40053;
 			int port = 40050;
 			Socket toMasterSocket = new Socket(masterIP, port);
