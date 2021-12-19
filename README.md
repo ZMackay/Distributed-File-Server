@@ -1,4 +1,4 @@
-# Distributed-File-Server
+# Distributed-File-Server(JAVA)
 
 This was the final project for my distributed systems class that me and other classmates collabortated to complete.
 
