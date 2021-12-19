@@ -1,0 +1,76 @@
+/********************************
+Name: Kyler Tracy
+Username: ua839
+Problem Set: LionDB
+Due Date: December 8, 2021
+********************************/
+
+How to Use ClientAPI.java
+    
+ - Only one instance is needed for each GUI session
+ 
+1.) Create the instance using the default constructor
+
+        ClientAPI clapi = new ClientAPI();
+        
+2.) Connect to the server. If it successfully connects, it returns true
+
+        clapi.connectToServer();
+        
+3.) Either authenticate a user or add a new user with given credentials.
+    Both return true on failure and false on success.
+
+        clapi.authenticate("Dave", "buddy123");
+   OR   clapi.addUser("Dave", "buddy123");
+   
+    ** If either of these fail, the MasterServer actually closes the connection
+    so you will have to connect again and then try to authenticate or add user again.
+
+4.) Once you are connected and authenticated, get a list of the user's files.
+
+        clapi.getFileListFromServer();
+        
+    This will update the API's internal list, and return true if successful, false otherwise
+
+5.) To get the list of files that was just retrieved from the server:
+
+        fileJList.setListData(clapi.getFilesArray());
+        
+    Returns a String[] of files formatted like:
+        "Filename           Size            Date"
+    so they can be displayed in a JList.
+
+6.) To refresh the set of files for any reason (user presses "refresh" button),
+    
+        clapi.getFileListFromServer();
+        fileJList.setListData(clapi.getFilesArray());
+
+7.) Delete a selected file. Returns true on success, false on failure
+
+        clapi.deleteFile("dummy.txt");
+        
+        It will probably be something like this:
+        // on delete button press event handler
+        String fl = fileJList.getSelectedValue();
+        String[] part = fl.split(" ");
+        // now part[0] is the filename
+        clapi.deleteFile(part[0]);
+
+8.) Upload a specified file:
+
+        clapi.uploadFile(selectedFile, progressBar);
+        
+        // might look like this
+        File fl = uploadJFileChooser.getSelectedFile();
+        clapi.uploadFile(fl, progressBar);
+
+9.) Download a file by filename:
+    
+        clapi.downloadFile(fileName, progressBar);
+        
+        // example
+        String[] fileInfo = JList.getSelected().split(",");
+        clapi.downloadFile(fileInfo[0], progressBar);
+        
+
+

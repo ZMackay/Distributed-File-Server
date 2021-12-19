@@ -1,0 +1,35 @@
+
+		Client			<-->		Server
+
+# add a user
+
+"ADD-USER,<uname>,<passwdHash>" 	--->
+					<--- "SUCCESS" on success, something else on failure
+
+# authenticate a user
+
+"AUTHENTICATE,<uname>,<passwdHash>"	--->
+					<--- "SUCCESS" on success, something else on failure
+
+# get a list of user's files to show them on the gui
+
+"GET-FILES"				--->
+					<--- "NONE" if no files, or delimited list of files
+					     like "<filename>,<size>,<date>::<filename>,<size>,<date>::"...
+
+# delete a file from server
+
+"DELETE-FILE,<fname>"			--->
+					<--- "SUCCESS" on success, something else on failure
+
+# download a file from the server to the client
+
+"DOWNLOAD,<fname>"			--->
+					<--- "OKAY,<size>" if starting the download, something else otherwise
+if "OKAY,<size>" reads bytes to file	     if okay, send the file, otherwise do nothing
+
+# upload a file to the server
+
+"UPLOAD,<fname>,<size>"			--->
+					<--- "OKAY" if it's okay for client to start uploading, something else otherwise
+if "OKAY" sends the file		     if "OKAY" reads the bytes to a file
